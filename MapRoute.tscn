@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Sprites/MovingTribe.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/MapRoute.gd" type="Script" id=2]
+[ext_resource path="res://MapTiles/MessageText.tscn" type="PackedScene" id=3]
+[ext_resource path="res://MapTiles/PointOfInterest.tscn" type="PackedScene" id=4]
+[ext_resource path="res://MapTiles/ArcologyCollapsePoI.tscn" type="PackedScene" id=5]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array(  )
+}
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 12.0
+
+[node name="MapRoute" type="Path2D"]
+curve = SubResource( 1 )
+script = ExtResource( 2 )
+messenger = ExtResource( 3 )
+POI = ExtResource( 4 )
+ArcologyCollapsePOI = ExtResource( 5 )
+
+[node name="Follow" type="PathFollow2D" parent="."]
+position = Vector2( 426.608, 510.752 )
+rotation = 2.17502
+
+[node name="TribeArea" type="Area2D" parent="Follow"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Follow/TribeArea"]
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Follow/TribeArea"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )

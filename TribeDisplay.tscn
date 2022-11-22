@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/TribeDisplay.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Adam.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Golem.tscn" type="PackedScene" id=3]
+
+[node name="TribeDisplay" type="Node"]
+script = ExtResource( 1 )
+Adam = ExtResource( 2 )
+Golem = ExtResource( 3 )
+hex_width = 64
+
+[node name="PointedLocation" type="Position2D" parent="."]
+position = Vector2( 175, 700 )

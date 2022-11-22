@@ -1,0 +1,16 @@
+[gd_scene format=2]
+
+[node name="FogOfWar" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2( 301.193, -83.4571 )
+color = Color( 0, 0, 0, 1 )
+polygon = PoolVector2Array( 155.286, 70.8255, -63.7356, 291.207, 284.522, 797.269, 838.197, 391.875 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 699.409, 459.741 )
+scale = Vector2( 1, 504.454 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Light2D"]
+position = Vector2( 13.5662, -0.161356 )
+polygon = PoolVector2Array( -133.819, -0.614234, -423.23, -0.0763806, -82.5691, 0.4047, 220.408, -0.488735 )

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/scene_world.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/DecisionScreen.gd" type="Script" id=3]
+
+[node name="DecisionScreen" type="Control"]
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SceneWorld" parent="." instance=ExtResource( 2 )]

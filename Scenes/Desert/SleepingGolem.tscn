@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Scene_Template.tscn" type="PackedScene" id=1]
+
+[node name="SceneRoot" instance=ExtResource( 1 )]
+
+[node name="Decision1" parent="DecisionMaker" index="0"]
+margin_top = 474.05
+margin_right = 790.333
+margin_bottom = 494.05
+text = "\"Let us awaken the mighty golem, quickly.\""
+delta_motivation = -0.2
+delta_population = -2.0
+delta_golems = 1.0
+
+[node name="Decision2" parent="DecisionMaker" index="1"]
+text = "\"I will perform a technomantic ritual to awaken it carefully.\""
+delta_food = -20.0
+delta_motivation = 0.2
+delta_golems = 1.0
+
+[node name="Decision3" parent="DecisionMaker" index="2"]
+margin_left = 503.066
+margin_top = 375.95
+margin_right = 892.066
+margin_bottom = 395.95
+text = "\"The risk is too great, we do not know what its Chem says.\""
+delta_motivation = -0.1
+
+[node name="Label" parent="DecisionMaker/Panel" index="0"]
+margin_left = 20.95
+margin_top = 18.05
+margin_right = 440.95
+margin_bottom = 100.05
+text = "A deactivated golem has been found!  Alone out in the dunes for what appears to be a very long time, who knows what will happen if it is awakened.  The tribe gathers around it, some reaching out to touch it while others linger back in suspicion. 
+"
+
+[editable path="DecisionMaker"]
+
+[editable path="DecisionMaker/Panel"]

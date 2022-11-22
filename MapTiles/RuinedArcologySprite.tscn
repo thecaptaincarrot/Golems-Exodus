@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://RuinedArcologyNode.gd" type="Script" id=1]
+[ext_resource path="res://MapTiles/RuinedArcology.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Smonk.tscn" type="PackedScene" id=3]
+
+[node name="RuinedArcologyNode" type="Node2D"]
+script = ExtResource( 1 )
+Smonk = ExtResource( 3 )
+
+[node name="RuinedArcology" type="Sprite" parent="."]
+position = Vector2( 5.16377, -47.6657 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+
+[node name="SmokeTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+[connection signal="timeout" from="SmokeTimer" to="." method="_on_SmokeTimer_timeout"]

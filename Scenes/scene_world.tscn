@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Sprites/Moon.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/SunGraphic.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Mask.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/scene_prefabs/SkyBoxPath.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/scene_world.gd" type="Script" id=5]
+
+[sub_resource type="Curve2D" id=1]
+bake_interval = 20.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 640, 64, 0, -335.172, 0, 335.172, 64, 400, 0, 0, 0, 0, 640, 736, -1.22774, 335.172, 1.22774, -335.172, 1216, 400, 0, 0, 0, 0, 640, 64 )
+}
+
+[node name="SceneWorld" type="Control"]
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SkyBox" type="ColorRect" parent="."]
+margin_left = -64.0
+margin_top = -56.0
+margin_right = 1400.0
+margin_bottom = 896.0
+color = Color( 0.0352941, 0.858824, 0.945098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DarkSkies" type="ColorRect" parent="."]
+margin_right = 1281.0
+margin_bottom = 799.0
+color = Color( 0, 0, 0.25098, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GroundMask" type="Light2D" parent="."]
+position = Vector2( 624, 594 )
+scale = Vector2( 1.00625, 1.05 )
+texture = ExtResource( 3 )
+color = Color( 0.831373, 0, 0, 1 )
+energy = 0.0
+mode = 3
+range_item_cull_mask = 32
+
+[node name="SkyBoxPath" type="Path2D" parent="."]
+curve = SubResource( 1 )
+script = ExtResource( 4 )
+
+[node name="SunFollow" type="PathFollow2D" parent="SkyBoxPath"]
+position = Vector2( 640, 64 )
+rotation = 3.11943
+
+[node name="Sun" type="Sprite" parent="SkyBoxPath/SunFollow"]
+light_mask = 32
+texture = ExtResource( 2 )
+
+[node name="MoonFollow" type="PathFollow2D" parent="SkyBoxPath"]
+position = Vector2( 639.867, 735.927 )
+rotation = -0.00146558
+offset = 1472.28
+
+[node name="Moon" type="Sprite" parent="SkyBoxPath/MoonFollow"]
+light_mask = 33
+texture = ExtResource( 1 )

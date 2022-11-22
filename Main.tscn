@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Tribe.tscn" type="PackedScene" id=1]
+[ext_resource path="res://DecisionScreen.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/Main.gd" type="Script" id=3]
+[ext_resource path="res://MapScreen.tscn" type="PackedScene" id=4]
+[ext_resource path="res://TitleScreen.tscn" type="PackedScene" id=5]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=6]
+[ext_resource path="res://SoundBox.tscn" type="PackedScene" id=7]
+
+[node name="Main" type="Node"]
+script = ExtResource( 3 )
+
+[node name="DecisionScreen" parent="." instance=ExtResource( 2 )]
+
+[node name="MapScreen" parent="." instance=ExtResource( 4 )]
+
+[node name="Tribe" parent="." instance=ExtResource( 1 )]
+food = 100
+
+[node name="TitleScreen" parent="." instance=ExtResource( 5 )]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 640, 400 )
+
+[node name="HUD" parent="." instance=ExtResource( 6 )]
+
+[node name="Button" type="Button" parent="HUD"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -73.0
+margin_right = 190.0
+text = "Return"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SoundBox" parent="." instance=ExtResource( 7 )]
+[connection signal="DayOver" from="." to="Tribe" method="_DayOver"]
+[connection signal="MapShow" from="TitleScreen/MapTestButton" to="." method="MapShow"]
+[connection signal="pressed" from="HUD/Button" to="." method="ReturnTitleScreen"]
+
+[editable path="DecisionScreen"]
+
+[editable path="MapScreen"]
+
+[editable path="MapScreen/OverMap"]
+
+[editable path="TitleScreen"]
+
+[editable path="HUD"]

@@ -1,0 +1,129 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Scripts/TopHUDcontainer.gd" type="Script" id=1]
+[ext_resource path="res://HUDstuff/placeholderMap.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/ClockHUD.gd" type="Script" id=3]
+[ext_resource path="res://fonts/LibreBaskerville-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://HUDstuff/topHUD.png" type="Texture" id=5]
+[ext_resource path="res://HUDstuff/clock.png" type="Texture" id=6]
+[ext_resource path="res://HUDstuff/Clock_Face.png" type="Texture" id=7]
+
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 20
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 20
+font_data = ExtResource( 4 )
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="Container" type="Container" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="Container"]
+margin_left = 1067.58
+margin_top = 7.36844
+margin_right = 1269.58
+margin_bottom = 209.368
+texture_normal = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TopHUD" type="TextureRect" parent="Container"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = 216.0
+margin_right = 1240.0
+margin_bottom = 256.0
+mouse_filter = 2
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HUDLabels" type="Label" parent="Container/TopHUD"]
+margin_left = 201.183
+margin_top = 5.0
+margin_right = 799.183
+margin_bottom = 33.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.619608, 0, 0, 1 )
+text = "Food:             Motivation:             Population:      Golem:"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FoodText" type="Label" parent="Container/TopHUD/HUDLabels"]
+margin_left = 70.0
+margin_right = 126.0
+margin_bottom = 28.0
+custom_fonts/font = SubResource( 2 )
+text = "9999"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MoraleText" type="Label" parent="Container/TopHUD/HUDLabels"]
+margin_left = 265.0
+margin_right = 322.0
+margin_bottom = 28.0
+custom_fonts/font = SubResource( 3 )
+text = "100%"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PopulationText" type="Label" parent="Container/TopHUD/HUDLabels"]
+margin_left = 465.0
+margin_right = 505.0
+margin_bottom = 28.0
+custom_fonts/font = SubResource( 4 )
+text = "37"
+
+[node name="GolemsText" type="Label" parent="Container/TopHUD/HUDLabels"]
+margin_left = 575.0
+margin_right = 615.0
+margin_bottom = 28.0
+custom_fonts/font = SubResource( 5 )
+text = "4"
+valign = 1
+
+[node name="ClockHUD" type="Container" parent="."]
+margin_left = -10.0
+margin_right = 30.0
+margin_bottom = 40.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ClockFace" type="Sprite" parent="ClockHUD"]
+position = Vector2( 95.2647, 18.3529 )
+scale = Vector2( 1.05, 1.05 )
+texture = ExtResource( 6 )
+
+[node name="ClockHUD" type="TextureRect" parent="ClockHUD"]
+margin_right = 192.0
+margin_bottom = 96.0
+texture = ExtResource( 7 )
